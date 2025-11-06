@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loadRepManage" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportManagementFormController">
+   <children>
+      <Pane layoutY="365.0" prefHeight="42.0" prefWidth="608.0" style="-fx-background-color: #514CDF;" />
+      <Pane prefHeight="74.0" prefWidth="608.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="197.0" layoutY="14.0" prefHeight="37.0" prefWidth="214.0" text="Report Management" textFill="#503e9e">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLbl1" layoutX="521.0" layoutY="24.0" text="Label">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="backBtn" fitHeight="42.0" fitWidth="35.0" layoutX="14.0" layoutY="15.0" onMouseClicked="#backBtnOnAction" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <JFXButton fx:id="inventRepBtn" buttonType="RAISED" layoutX="228.0" layoutY="133.0" onAction="#inventRepBtnOnAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #503e9e; -fx-background-radius: 10;" text="Inventory Report" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="staffRepBtn" buttonType="RAISED" layoutX="228.0" layoutY="243.0" onAction="#staffRepBtnOnAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #6293DB; -fx-background-radius: 10;" text="Staff Report" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="salesRepBtn" buttonType="RAISED" layoutX="228.0" layoutY="189.0" onAction="#salesRepBtnOnAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #7E66E3; -fx-background-radius: 10;" text="Sales Report" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
