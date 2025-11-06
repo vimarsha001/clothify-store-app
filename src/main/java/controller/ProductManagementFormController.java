@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -80,6 +81,9 @@ public class ProductManagementFormController implements Initializable {
 
     @FXML
     private JFXButton updateBtn;
+
+    @FXML
+    private JFXComboBox<String> categoryCmb;
 
     @FXML
     void addBtnOnAction(ActionEvent event) {

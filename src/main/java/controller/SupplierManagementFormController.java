@@ -40,6 +40,18 @@ public class SupplierManagementFormController implements Initializable {
     private JFXButton deleteBtn;
 
     @FXML
+    private TableColumn<?, ?> qtyCol;
+
+    @FXML
+    private TextField nameTxt;
+
+    @FXML
+    private TableColumn<?, ?> supNameCol;
+
+    @FXML
+    private TextField qtyTxt;
+
+    @FXML
     private TableColumn<?, ?> idCol;
 
     @FXML

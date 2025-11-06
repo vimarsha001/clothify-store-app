@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -37,11 +39,6 @@
             </ImageView>
             <Pane layoutY="366.0" prefHeight="42.0" prefWidth="706.0" style="-fx-background-color: #514CDF;" />
             <TextField fx:id="sizeTxt" alignment="CENTER" layoutX="38.0" layoutY="198.0" promptText="Size" style="-fx-background-radius: 10;">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="categoryTxt" alignment="CENTER" layoutX="38.0" layoutY="161.0" promptText="Category" style="-fx-background-radius: 10;">
                <font>
                   <Font name="Arial Black" size="11.0" />
                </font>
@@ -99,7 +96,11 @@
                   <Font name="Arial Black" size="11.0" />
                </font>
             </TextField>
+            <JFXComboBox fx:id="categoryCmb" layoutX="41.0" layoutY="160.0" prefHeight="25.0" prefWidth="144.0" promptText="Category" unFocusColor="#4239a8" />
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </AnchorPane>
    </children>
 </AnchorPane>
