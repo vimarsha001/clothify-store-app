@@ -47,7 +47,7 @@ public class StaffDashboardFormController implements Initializable {
 
     @FXML
     void orderManBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/orderManagementForm.fxml");
+        URL resource = this.getClass().getResource("/view/orderDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadStaffDash.getChildren().clear();

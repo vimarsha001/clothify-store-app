@@ -47,5 +47,6 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Label fx:id="errorLbl" layoutX="307.0" layoutY="325.0" textFill="RED" />
    </children>
 </AnchorPane>

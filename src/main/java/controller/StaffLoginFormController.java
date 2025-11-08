@@ -35,6 +35,9 @@ public class StaffLoginFormController implements Initializable {
     private TextField pwTxt;
 
     @FXML
+    private Label errorLbl;
+
+    @FXML
     private TextField usernameTxt;
 
     @FXML
@@ -48,11 +51,17 @@ public class StaffLoginFormController implements Initializable {
 
     @FXML
     void loginBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffDashboarForm.fxml");
-        Parent load = FXMLLoader.load(resource);
+        if(usernameTxt.getText().equals("staff@1234") || pwTxt.getText().equals("pw1234")){
+            errorLbl.setText("");
+            URL resource = this.getClass().getResource("/view/staffDashboarForm.fxml");
+            Parent load = FXMLLoader.load(resource);
 
-        this.loadStaffLogin.getChildren().clear();
-        this.loadStaffLogin.getChildren().add(load);
+            this.loadStaffLogin.getChildren().clear();
+            this.loadStaffLogin.getChildren().add(load);
+
+        }else{
+            errorLbl.setText("Username or password is incorrect!");
+        }
     }
 
     @Override

@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.dto.Product;
+import service.ProductService;
+import service.impl.ProductServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +24,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ProductManagementFormController implements Initializable {
+
+    ProductService productService = new ProductServiceImpl();
 
     @FXML
     private JFXButton addBtn;
@@ -87,7 +92,16 @@ public class ProductManagementFormController implements Initializable {
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
+        Product product = new Product(
+                productIdTxt.getText(),
+                desTxt.getText(),
+                categoryCmb.getValue(),
+                sizeTxt.getText(),
+                Integer.parseInt(qtyTxt.getText()),
+                Double.parseDouble(priceTxt.getText())
+        );
 
+        productService.add(product);
     }
 
     @FXML
@@ -101,17 +115,25 @@ public class ProductManagementFormController implements Initializable {
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-
+        productService.delete(productIdTxt.getText());
     }
 
     @FXML
     void searchBtnOnAction(ActionEvent event) {
-
+        productService.search(productIdTxt.getText(),desTxt.getText(),categoryCmb.getValue());
     }
 
     @FXML
     void updateBtnOnAction(ActionEvent event) {
-
+        Product product = new Product(
+                productIdTxt.getText(),
+                desTxt.getText(),
+                categoryCmb.getValue(),
+                sizeTxt.getText(),
+                Integer.parseInt(qtyTxt.getText()),
+                Double.parseDouble(priceTxt.getText())
+        );
+        productService.update(product);
     }
 
     @Override

@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.dto.Staff;
+import service.StaffService;
+import service.impl.StaffServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +23,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StaffManagementFormController implements Initializable {
+
+    StaffService staffService = new StaffServiceImpl();
 
     @FXML
     private JFXButton addBtn;
@@ -77,7 +82,15 @@ public class StaffManagementFormController implements Initializable {
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
-
+        Staff staff = new Staff(
+                staffIdTxt.getText(),
+                nameTxt.getText(),
+                addressTxt.getText(),
+                positionTxt.getText(),
+                Double.parseDouble(salaryTxt.getText()),
+                LocalDate.parse(dateLbl.getText())
+        );
+        staffService.add(staff);
     }
 
     @FXML
@@ -92,17 +105,25 @@ public class StaffManagementFormController implements Initializable {
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-
+        staffService.delete(staffIdTxt.getText());
     }
 
     @FXML
     void searchBtnOnAction(ActionEvent event) {
-
+        staffService.search(staffIdTxt.getText());
     }
 
     @FXML
     void updateBtnOnAction(ActionEvent event) {
-
+        Staff staff = new Staff(
+                staffIdTxt.getText(),
+                nameTxt.getText(),
+                addressTxt.getText(),
+                positionTxt.getText(),
+                Double.parseDouble(salaryTxt.getText()),
+                LocalDate.parse(dateLbl.getText())
+        );
+        staffService.update(staff);
     }
 
     @Override

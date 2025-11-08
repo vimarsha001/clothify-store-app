@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXRadioButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -15,19 +14,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.dto.Order;
+import service.OrderService;
+import service.impl.OrderServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
 
-public class OrderManagementFormController implements Initializable {
+public class OrderManagementFormController {
+
+    OrderService orderService = new OrderServiceImpl();
 
     @FXML
     private JFXButton addBtn;
 
     @FXML
     private ImageView backBtn;
+
+    @FXML
+    private JFXComboBox<?> custIdCmb;
+
+    @FXML
+    private TableColumn<?, ?> custIdCol;
 
     @FXML
     private Label dateLbl;
@@ -39,28 +48,19 @@ public class OrderManagementFormController implements Initializable {
     private JFXRadioButton deliveredBtn;
 
     @FXML
-    private TableColumn<?, ?> descCol;
-
-    @FXML
-    private JFXButton invoiceBtn;
-
-    @FXML
     private AnchorPane loadOrderManagement;
 
     @FXML
-    private TextField orderID;
+    private TableColumn<?, ?> orderIdCol;
+
+    @FXML
+    private TextField orderIdTxt;
+
+    @FXML
+    private TableView<?> orderTbl;
 
     @FXML
     private JFXRadioButton processingBtn;
-
-    @FXML
-    private JFXComboBox<?> prodIdCmb;
-
-    @FXML
-    private JFXComboBox<?> prodIdCmb1;
-
-    @FXML
-    private TableView<?> productTbl;
 
     @FXML
     private TableColumn<?, ?> qtyCol;
@@ -75,19 +75,32 @@ public class OrderManagementFormController implements Initializable {
     private JFXRadioButton shippedBtn;
 
     @FXML
-    private TableColumn<?, ?> totCol;
+    private TableColumn<?, ?> statusCol;
+
+    @FXML
+    private TextField totTxt;
+
+    @FXML
+    private TableColumn<?, ?> totalCol;
 
     @FXML
     private JFXButton updateBtn;
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
-
+        Order order = new Order(
+                orderIdTxt.getText(),
+                Integer.parseInt(qtyTxt.getText()),
+                Double.parseDouble(totTxt.getText()),
+                getStatus(),
+                LocalDate.parse(dateLbl.getText())
+        );
+        orderService.add(order);
     }
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffDashboardForm.fxml");
+        URL resource = this.getClass().getResource("/view/orderDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadOrderManagement.getChildren().clear();
@@ -96,27 +109,34 @@ public class OrderManagementFormController implements Initializable {
 
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void invoiceBtnOnAction(ActionEvent event) {
-
+        orderService.delete(orderIdTxt.getText());
     }
 
     @FXML
     void searchBtnOnAction(ActionEvent event) {
-
+        orderService.search(orderIdTxt.getText());
     }
 
     @FXML
     void updateBtnOnAction(ActionEvent event) {
-
+        Order order = new Order(
+                orderIdTxt.getText(),
+                Integer.parseInt(qtyTxt.getText()),
+                Double.parseDouble(totTxt.getText()),
+                getStatus(),
+                LocalDate.parse(dateLbl.getText())
+        );
+        orderService.update(order);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        dateLbl.setText(String.valueOf(LocalDate.now()));
+    String getStatus(){
+        if(processingBtn.isSelected()){
+            return "Proccesing";
+        }else if(shippedBtn.isSelected()){
+            return "Shipped";
+        }else{
+            return "Delivered";
+        }
     }
 
 }

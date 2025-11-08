@@ -26,6 +26,9 @@ public class AdminLoginFormController implements Initializable {
     private Label dateLbl;
 
     @FXML
+    private Label errorLbl;
+
+    @FXML
     private AnchorPane loadAdminLogin;
 
     @FXML
@@ -48,11 +51,17 @@ public class AdminLoginFormController implements Initializable {
 
     @FXML
     void loginBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/adminDashboardForm.fxml");
-        Parent load = FXMLLoader.load(resource);
+        if(usernameTxt.getText().equals("admin@1234") || pwTxt.getText().equals("pw1234")){
+            errorLbl.setText("");
+            URL resource = this.getClass().getResource("/view/adminDashboardForm.fxml");
+            Parent load = FXMLLoader.load(resource);
 
-        this.loadAdminLogin.getChildren().clear();
-        this.loadAdminLogin.getChildren().add(load);
+            this.loadAdminLogin.getChildren().clear();
+            this.loadAdminLogin.getChildren().add(load);
+        }else{
+            errorLbl.setText("Username or password is incorrect!");
+        }
+
     }
 
     @Override
