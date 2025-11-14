@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 public interface OrderRepository {
     void add(Order order);
-    void update(String status);
+    void update(String id,String status);
     void delete(String id);
     ResultSet search(String id,String custId);
     ResultSet getAll();

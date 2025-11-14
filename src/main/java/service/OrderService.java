@@ -7,7 +7,7 @@ import model.dto.Product;
 
 public interface OrderService {
     void add(Order order);
-    void update(String status);
+    void update(String id,String status);
     void delete(String id);
     ObservableList<Order> search(String orderId,String custId);
     ObservableList<Order> getAll();

@@ -156,12 +156,12 @@ public class OrderManagementFormController implements Initializable {
 
     @FXML
     void searchBtnOnAction(ActionEvent event) {
-        orderService.search(orderIdTxt.getText(),custIdCmb.getValue());
+        orderTbl.setItems(orderService.search(orderIdTxt.getText(),custIdCmb.getValue()));
     }
 
     @FXML
     void updateBtnOnAction(ActionEvent event) {
-        orderService.update(getStatus());
+        orderService.update(orderIdTxt.getText(),getStatus());
         loadTable();
         clear();
     }

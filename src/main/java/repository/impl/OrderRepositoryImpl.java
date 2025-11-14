@@ -32,12 +32,13 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void update(String status) {
+    public void update(String id,String status) {
         String SQL = "UPDATE orders SET status = ? WHERE id=?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1,status);
+            preparedStatement.setString(2,id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
