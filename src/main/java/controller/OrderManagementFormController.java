@@ -208,12 +208,18 @@ public class OrderManagementFormController implements Initializable {
         custIdCmb.setValue(newValue.getCustId());
         qtyTxt.setText(String.valueOf(newValue.getQty()));
         totTxt.setText(String.valueOf(newValue.getTotal()));
-        if(newValue.getStatus() =="Processing"){
-            processingBtn.isSelected();
-        }else if(newValue.getStatus() == "Shipped"){
-            shippedBtn.isSelected();
+        if(newValue.getStatus().equals("Processing")){
+            processingBtn.setSelected(true);
+            shippedBtn.setSelected(false);
+            deliveredBtn.setSelected(false);
+        }else if(newValue.getStatus().equals("Shipped")){
+            shippedBtn.setSelected(true);
+            processingBtn.setSelected(false);
+            deliveredBtn.setSelected(false);
         }else{
-            deliveredBtn.isSelected();
+            deliveredBtn.setSelected(true);
+            shippedBtn.setSelected(false);
+            processingBtn.setSelected(false);
         }
         addressTxt.setText(newValue.getAddress());
     }
