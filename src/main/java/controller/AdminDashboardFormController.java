@@ -65,7 +65,7 @@ public class AdminDashboardFormController implements Initializable {
 
     @FXML
     void staffManBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/StaffManagementForm.fxml");
+        URL resource = this.getClass().getResource("/view/employeeManagementForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadAdminDash.getChildren().clear();

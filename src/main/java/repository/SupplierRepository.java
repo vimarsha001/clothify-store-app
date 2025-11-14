@@ -10,5 +10,5 @@ public interface SupplierRepository {
     void update(Supplier supplier);
     void delete(String id);
     ResultSet getAll();
-    ResultSet search(String id , String name);
+    ResultSet search(String id , String name, String category);
 }

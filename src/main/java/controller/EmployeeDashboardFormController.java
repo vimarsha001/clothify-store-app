@@ -16,7 +16,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class StaffDashboardFormController implements Initializable {
+public class EmployeeDashboardFormController implements Initializable {
 
     @FXML
     private ImageView backBtn;
@@ -38,7 +38,7 @@ public class StaffDashboardFormController implements Initializable {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffLoginForm.fxml");
+        URL resource = this.getClass().getResource("/view/EmployeeLoginForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadStaffDash.getChildren().clear();

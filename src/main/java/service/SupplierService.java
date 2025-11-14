@@ -8,6 +8,6 @@ public interface SupplierService {
     void update(Supplier supplier);
     void delete(String id);
     ObservableList<Supplier> getAll();
-    ObservableList<Supplier> search(String id , String name);
+    ObservableList<Supplier> search(String id , String name , String category);
 
 }

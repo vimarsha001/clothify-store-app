@@ -15,6 +15,7 @@ import java.net.URL;
 
 public class OrderDashboardFormController {
 
+    public JFXButton orderBtn;
     @FXML
     private ImageView backBtn;
 
@@ -32,7 +33,7 @@ public class OrderDashboardFormController {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffDashboardForm.fxml");
+        URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadOrderDash.getChildren().clear();
@@ -50,11 +51,18 @@ public class OrderDashboardFormController {
 
     @FXML
     void orderDetailsBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/orderManagementForm.fxml");
+        URL resource = this.getClass().getResource("/view/orderDetailsForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadOrderDash.getChildren().clear();
         this.loadOrderDash.getChildren().add(load);
     }
 
+    public void orderBtnOnAction(ActionEvent actionEvent) throws IOException {
+        URL resource = this.getClass().getResource("/view/orderManagementForm.fxml");
+        Parent load = FXMLLoader.load(resource);
+
+        this.loadOrderDash.getChildren().clear();
+        this.loadOrderDash.getChildren().add(load);
+    }
 }

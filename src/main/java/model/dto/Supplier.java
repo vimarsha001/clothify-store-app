@@ -1,18 +1,16 @@
 package model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Supplier {
     private String id;
     private String name;
     private String productId;
-    private int qty;
     private String category;
+    private int qty;
 }

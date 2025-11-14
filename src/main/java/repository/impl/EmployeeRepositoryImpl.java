@@ -1,24 +1,25 @@
 package repository.impl;
 
 import db.DBConnection;
-import javafx.collections.ObservableList;
-import model.dto.Supplier;
-import repository.SupplierRepository;
+import model.dto.Employee;
+import repository.EmployeeRepository;
 
 import java.sql.*;
 
-public class SupplierRepositoryImpl implements SupplierRepository {
+public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
-    public void add(Supplier supplier) {
+    public void add(Employee employee) {
         try {
-            String SQL = "INSERT INTO suppliers (id,name,prod_id,category,qty_prvd) VALUES (?,?,?,?,?)";
+            String SQL = "INSERT INTO employees (id,name,email,phone_num,position,salary,join_date) VALUES (?,?,?,?,?,?,?)";
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setString(1,supplier.getId());
-            preparedStatement.setString(2,supplier.getName());
-            preparedStatement.setString(3,supplier.getProductId());
-            preparedStatement.setString(4,supplier.getCategory());
-            preparedStatement.setInt(5,supplier.getQty());
+            preparedStatement.setString(1,employee.getId());
+            preparedStatement.setString(2,employee.getName());
+            preparedStatement.setString(3,employee.getEmail());
+            preparedStatement.setString(4,employee.getPhoneNumber());
+            preparedStatement.setString(5,employee.getPosition());
+            preparedStatement.setDouble(6,employee.getSalary());
+            preparedStatement.setDate(7, Date.valueOf(employee.getJoinDate()));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -26,16 +27,18 @@ public class SupplierRepositoryImpl implements SupplierRepository {
     }
 
     @Override
-    public void update(Supplier supplier) {
-        String SQL = "UPDATE suppliers SET name=?,prod_id=?,category=?,qty_prvd=? WHERE id=?";
+    public void update(Employee employee) {
+        String SQL = "UPDATE employees SET name=?,email=?,phone_num=?,position=?,salary=?,join_date=? WHERE id=?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setString(1,supplier.getName());
-            preparedStatement.setString(2,supplier.getProductId());
-            preparedStatement.setString(3,supplier.getCategory());
-            preparedStatement.setInt(4,supplier.getQty());
-            preparedStatement.setString(5,supplier.getId());
+            preparedStatement.setString(1,employee.getName());
+            preparedStatement.setString(2,employee.getEmail());
+            preparedStatement.setString(3,employee.getPhoneNumber());
+            preparedStatement.setString(4,employee.getPosition());
+            preparedStatement.setDouble(5,employee.getSalary());
+            preparedStatement.setDate(6, Date.valueOf(employee.getJoinDate()));
+            preparedStatement.setString(7,employee.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -44,7 +47,7 @@ public class SupplierRepositoryImpl implements SupplierRepository {
 
     @Override
     public void delete(String id) {
-        String SQL = "DELETE FROM suppliers WHERE id = ?";
+        String SQL = "DELETE FROM employees WHERE id = ?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -57,7 +60,7 @@ public class SupplierRepositoryImpl implements SupplierRepository {
 
     @Override
     public ResultSet getAll() {
-        String SQL = "SELECT * FROM suppliers";
+        String SQL = "SELECT * FROM employees";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -68,14 +71,14 @@ public class SupplierRepositoryImpl implements SupplierRepository {
     }
 
     @Override
-    public ResultSet search(String id, String name, String category) {
-        String SQL = "SELECT * FROM suppliers WHERE id = ? OR name=? OR category=?";
+    public ResultSet search(String id,String email,String position) {
+        String SQL = "SELECT * FROM employees WHERE id = ? OR email=? OR position=?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1,id);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,category);
+            preparedStatement.setString(2,email);
+            preparedStatement.setString(3,position);
             return preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);

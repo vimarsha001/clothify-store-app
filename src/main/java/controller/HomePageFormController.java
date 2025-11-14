@@ -38,7 +38,7 @@ public class HomePageFormController implements Initializable {
 
     @FXML
     void staffBtnOnAction(ActionEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffLoginForm.fxml");
+        URL resource = this.getClass().getResource("/view/EmployeeLoginForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadHomePage.getChildren().clear();

@@ -7,10 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Cart {
-    private String custID;
-    private String prodID;
-    private String size;
+public class OrderDetail {
+    private String id;
+    private String prod_id;
     private int qty;
     private double total;
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loadStaffManagement" prefHeight="408.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeManagementFormController">
+   <children>
+      <Pane prefHeight="64.0" prefWidth="824.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="276.0" layoutY="14.0" prefHeight="37.0" prefWidth="186.0" text="Staff Management" textFill="#503e9e">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLbl" layoutX="749.0" layoutY="24.0" text="Label">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="backBtn" fitHeight="42.0" fitWidth="35.0" layoutX="20.0" layoutY="14.0" onMouseClicked="#backBtnOnAction" preserveRatio="true">
+         <image>
+            <Image url="@../images/left-arrow.png" />
+         </image>
+      </ImageView>
+      <Pane layoutY="366.0" prefHeight="42.0" prefWidth="824.0" style="-fx-background-color: #514CDF;" />
+      <TextField fx:id="positionTxt" alignment="CENTER" layoutX="38.0" layoutY="227.0" promptText="Position" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="emailTxt" alignment="CENTER" layoutX="38.0" layoutY="155.0" promptText="Email" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="nameTxt" alignment="CENTER" layoutX="38.0" layoutY="118.0" promptText="Name" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="staffIdTxt" alignment="CENTER" layoutX="38.0" layoutY="85.0" promptText="Staff ID" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="salaryTxt" alignment="CENTER" layoutX="38.0" layoutY="261.0" promptText="Salary" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="356.0" layoutY="309.0" onAction="#addBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #503e9e; -fx-background-radius: 15;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="725.0" layoutY="309.0" onAction="#deleteBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #3BADCD; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="597.0" layoutY="309.0" onAction="#searchBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #6293DB; -fx-background-radius: 15;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="478.0" layoutY="309.0" onAction="#updateBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #7E66E3; -fx-background-radius: 15;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="staffTbl" layoutX="216.0" layoutY="85.0" prefHeight="200.0" prefWidth="581.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="60.0" text="Staff ID" />
+          <TableColumn fx:id="nameCol" prefWidth="97.0" text="Name" />
+            <TableColumn fx:id="emailCol" prefWidth="97.0" text="Email" />
+            <TableColumn fx:id="phoneCol" prefWidth="91.0" text="Phone Number" />
+            <TableColumn fx:id="positionCol" prefWidth="81.0" text="Position" />
+            <TableColumn fx:id="salaryCol" prefWidth="74.0" text="Salary" />
+            <TableColumn fx:id="joinDateCol" text="Join Date" />
+        </columns>
+         <effect>
+            <Glow />
+         </effect>
+      </TableView>
+      <TextField fx:id="phoneNumTxt" alignment="CENTER" layoutX="38.0" layoutY="192.0" promptText="Phone Number" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="joinDate" layoutX="38.0" layoutY="297.0" prefHeight="25.0" prefWidth="144.0" promptText="Join Date" />
+      <Label fx:id="errorLbl" layoutX="41.0" layoutY="339.0" prefHeight="17.0" prefWidth="231.0" textFill="RED">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

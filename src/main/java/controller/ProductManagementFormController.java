@@ -2,6 +2,8 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,6 +49,9 @@ public class ProductManagementFormController implements Initializable {
     private JFXButton deleteBtn;
 
     @FXML
+    private JFXComboBox<String> sizeCmb;
+
+    @FXML
     private TextField desTxt;
 
     @FXML
@@ -67,7 +73,7 @@ public class ProductManagementFormController implements Initializable {
     private TextField productIdTxt;
 
     @FXML
-    private TableView<?> productTbl;
+    private TableView<Product> productTbl;
 
     @FXML
     private TableColumn<?, ?> qtyCol;
@@ -96,17 +102,19 @@ public class ProductManagementFormController implements Initializable {
                 productIdTxt.getText(),
                 desTxt.getText(),
                 categoryCmb.getValue(),
-                sizeTxt.getText(),
+                sizeCmb.getValue(),
                 Integer.parseInt(qtyTxt.getText()),
                 Double.parseDouble(priceTxt.getText())
         );
 
         productService.add(product);
+        loadTable();
+        clear();
     }
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/staffDashboardForm.fxml");
+        URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadProductManagement.getChildren().clear();
@@ -116,11 +124,16 @@ public class ProductManagementFormController implements Initializable {
     @FXML
     void deleteBtnOnAction(ActionEvent event) {
         productService.delete(productIdTxt.getText());
+        loadTable();
+        clear();
     }
 
     @FXML
     void searchBtnOnAction(ActionEvent event) {
-        productService.search(productIdTxt.getText(),desTxt.getText(),categoryCmb.getValue());
+        ObservableList<Product> products = productService.search(productIdTxt.getText(),desTxt.getText(),categoryCmb.getValue());
+        productTbl.setItems(products);
+
+
     }
 
     @FXML
@@ -129,16 +142,62 @@ public class ProductManagementFormController implements Initializable {
                 productIdTxt.getText(),
                 desTxt.getText(),
                 categoryCmb.getValue(),
-                sizeTxt.getText(),
+                sizeCmb.getValue(),
                 Integer.parseInt(qtyTxt.getText()),
                 Double.parseDouble(priceTxt.getText())
         );
         productService.update(product);
+        loadTable();
+        clear();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dateLbl.setText(String.valueOf(LocalDate.now()));
+        ObservableList<String> category = FXCollections.observableArrayList("Activewear","Dress","Jeans","Crop Top","Bottoms");
+        categoryCmb.setItems(category);
+
+        ObservableList<String> size = FXCollections.observableArrayList("XS","S","M","L","XL","XXL");
+        sizeCmb.setItems(size);
+
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        descCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<>("size"));
+        qtyCol.setCellValueFactory(new PropertyValueFactory<>("qtyInStock"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        loadTable();
+
+        productTbl.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=null){
+                setValues(newValue);
+            }
+        });
+    }
+
+    public void setValues(Product newValue) {
+        productIdTxt.setText(newValue.getId());
+        desTxt.setText(newValue.getDescription());
+        categoryCmb.setValue(newValue.getCategory());
+        sizeCmb.setValue(newValue.getSize());
+        qtyTxt.setText(String.valueOf(newValue.getQtyInStock()));
+        priceTxt.setText(String.valueOf(newValue.getPrice()));
+    }
+
+    public void loadTable(){
+        ObservableList<Product> products = productService.getAll();
+        productTbl.setItems(products);
+
+    }
+
+    public void clear(){
+        productIdTxt.setText("");
+        desTxt.setText("");
+        categoryCmb.setValue("");
+        sizeCmb.setValue("");
+        qtyTxt.setText("");
+        priceTxt.setText("");
     }
 
 

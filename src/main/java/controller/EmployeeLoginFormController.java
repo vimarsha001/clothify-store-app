@@ -17,7 +17,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class StaffLoginFormController implements Initializable {
+public class EmployeeLoginFormController implements Initializable {
 
     @FXML
     private ImageView backBtn;
@@ -51,17 +51,17 @@ public class StaffLoginFormController implements Initializable {
 
     @FXML
     void loginBtnOnAction(ActionEvent event) throws IOException {
-        if(usernameTxt.getText().equals("staff@1234") || pwTxt.getText().equals("pw1234")){
-            errorLbl.setText("");
-            URL resource = this.getClass().getResource("/view/staffDashboarForm.fxml");
+//        if(usernameTxt.getText().equals("staff@1234") || pwTxt.getText().equals("pw1234")){
+//            errorLbl.setText("");
+            URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
             Parent load = FXMLLoader.load(resource);
 
             this.loadStaffLogin.getChildren().clear();
             this.loadStaffLogin.getChildren().add(load);
 
-        }else{
-            errorLbl.setText("Username or password is incorrect!");
-        }
+//        }else{
+//            errorLbl.setText("Username or password is incorrect!");
+//        }
     }
 
     @Override

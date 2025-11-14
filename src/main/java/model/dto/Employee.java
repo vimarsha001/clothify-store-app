@@ -1,10 +1,7 @@
 package model.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,10 +9,12 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Staff {
+@ToString
+public class Employee {
     private String id;
     private String name;
-    private String address;
+    private String email;
+    private String phoneNumber;
     private String position;
     private double salary;
     private LocalDate joinDate;

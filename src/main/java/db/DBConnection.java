@@ -8,7 +8,7 @@ public class DBConnection {
     private static DBConnection instance;
     Connection connection;
     private DBConnection() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clothify","root","2007");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clothify_store","root","2007");
     }
     public Connection getConnection(){
         return connection;
