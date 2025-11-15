@@ -17,12 +17,12 @@
    <children>
       <Pane prefHeight="64.0" prefWidth="824.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label layoutX="276.0" layoutY="14.0" prefHeight="37.0" prefWidth="186.0" text="Staff Management" textFill="#503e9e">
+            <Label layoutX="286.0" layoutY="14.0" prefHeight="37.0" prefWidth="231.0" text="Employee Management" textFill="#503e9e">
                <font>
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="dateLbl" layoutX="749.0" layoutY="24.0" text="Label">
+            <Label fx:id="dateLbl" layoutX="721.0" layoutY="24.0" text="Label">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
@@ -50,7 +50,7 @@
             <Font name="Arial Black" size="11.0" />
          </font>
       </TextField>
-      <TextField fx:id="staffIdTxt" alignment="CENTER" layoutX="38.0" layoutY="85.0" promptText="Staff ID" style="-fx-background-radius: 10;">
+      <TextField fx:id="staffIdTxt" alignment="CENTER" layoutX="38.0" layoutY="85.0" promptText="Employee ID" style="-fx-background-radius: 10;">
          <font>
             <Font name="Arial Black" size="11.0" />
          </font>
@@ -82,8 +82,8 @@
       </JFXButton>
       <TableView fx:id="staffTbl" layoutX="216.0" layoutY="85.0" prefHeight="200.0" prefWidth="581.0">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="60.0" text="Staff ID" />
-          <TableColumn fx:id="nameCol" prefWidth="97.0" text="Name" />
+          <TableColumn fx:id="idCol" prefWidth="76.0" text="Employee ID" />
+          <TableColumn fx:id="nameCol" prefWidth="81.0" text="Name" />
             <TableColumn fx:id="emailCol" prefWidth="97.0" text="Email" />
             <TableColumn fx:id="phoneCol" prefWidth="91.0" text="Phone Number" />
             <TableColumn fx:id="positionCol" prefWidth="81.0" text="Position" />

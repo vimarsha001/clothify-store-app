@@ -42,6 +42,6 @@
             <Image url="@../images/left-arrow.png" />
          </image>
       </ImageView>
-      <Label fx:id="errorLbl" layoutX="297.0" layoutY="315.0" textFill="RED" />
+      <Label fx:id="errorLbl" layoutX="220.0" layoutY="317.0" prefHeight="17.0" prefWidth="219.0" textFill="RED" />
    </children>
 </AnchorPane>

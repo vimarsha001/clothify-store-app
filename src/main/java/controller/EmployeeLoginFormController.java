@@ -53,7 +53,7 @@ public class EmployeeLoginFormController implements Initializable {
     void loginBtnOnAction(ActionEvent event) throws IOException {
         if(usernameTxt.getText().equals("staff@1234") || pwTxt.getText().equals("pw1234")){
             errorLbl.setText("");
-            URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
+            URL resource = this.getClass().getResource("/view/employeeDashboardForm.fxml");
             Parent load = FXMLLoader.load(resource);
 
             this.loadStaffLogin.getChildren().clear();

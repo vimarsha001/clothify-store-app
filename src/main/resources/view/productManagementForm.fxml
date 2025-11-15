@@ -14,89 +14,85 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductManagementFormController">
+<AnchorPane fx:id="loadProductManagement" prefHeight="404.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductManagementFormController">
    <children>
-      <AnchorPane fx:id="loadProductManagement" layoutY="3.0" prefHeight="408.0" prefWidth="706.0">
+      <Pane prefHeight="64.0" prefWidth="706.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Pane prefHeight="64.0" prefWidth="706.0" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <Label layoutX="246.0" layoutY="14.0" prefHeight="37.0" prefWidth="214.0" text="Product Management" textFill="#503e9e">
-                     <font>
-                        <Font name="Arial Black" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="dateLbl" layoutX="624.0" layoutY="24.0" text="Label">
-                     <font>
-                        <Font name="Arial Black" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <ImageView fx:id="backBtn" fitHeight="42.0" fitWidth="35.0" layoutX="20.0" layoutY="14.0" onMouseClicked="#backBtnOnAction" preserveRatio="true">
-               <image>
-                  <Image url="@../images/left-arrow.png" />
-               </image>
-            </ImageView>
-            <Pane layoutY="366.0" prefHeight="42.0" prefWidth="706.0" style="-fx-background-color: #514CDF;" />
-            <TextField fx:id="desTxt" alignment="CENTER" layoutX="38.0" layoutY="123.0" promptText="Description" style="-fx-background-radius: 10;">
+            <Label layoutX="246.0" layoutY="14.0" prefHeight="37.0" prefWidth="214.0" text="Product Management" textFill="#503e9e">
                <font>
-                  <Font name="Arial Black" size="11.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
-            </TextField>
-            <TextField fx:id="productIdTxt" alignment="CENTER" layoutX="38.0" layoutY="85.0" promptText="Product ID" style="-fx-background-radius: 10;">
+            </Label>
+            <Label fx:id="dateLbl" layoutX="624.0" layoutY="24.0" text="Label">
                <font>
-                  <Font name="Arial Black" size="11.0" />
+                  <Font name="Arial Black" size="12.0" />
                </font>
-            </TextField>
-            <TextField fx:id="qtyTxt" alignment="CENTER" layoutX="38.0" layoutY="237.0" promptText="Qty in Stock" style="-fx-background-radius: 10;">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </TextField>
-            <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="232.0" layoutY="309.0" onAction="#addBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #503e9e; -fx-background-radius: 15;" text="Add" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="603.0" layoutY="309.0" onAction="#deleteBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #3BADCD; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="482.0" layoutY="309.0" onAction="#searchBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #6293DB; -fx-background-radius: 15;" text="Search" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="353.0" layoutY="309.0" onAction="#updateBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #7E66E3; -fx-background-radius: 15;" text="Update" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </JFXButton>
-            <TableView fx:id="productTbl" layoutX="216.0" layoutY="85.0" prefHeight="200.0" prefWidth="459.0">
-               <columns>
-                  <TableColumn fx:id="idCol" prefWidth="75.0" text="Product ID" />
-                  <TableColumn fx:id="descCol" prefWidth="75.0" text="Description" />
-                  <TableColumn fx:id="categoryCol" prefWidth="75.0" text="Category" />
-                  <TableColumn fx:id="sizeCol" prefWidth="75.0" text="Size" />
-                  <TableColumn fx:id="qtyCol" prefWidth="79.0" text="Qty in Stock" />
-                  <TableColumn fx:id="priceCol" prefWidth="79.0" text="Price" />
-               </columns>
-               <effect>
-                  <Glow />
-               </effect>
-            </TableView>
-            <TextField fx:id="priceTxt" alignment="CENTER" layoutX="38.0" layoutY="273.0" promptText="Price" style="-fx-background-radius: 10;">
-               <font>
-                  <Font name="Arial Black" size="11.0" />
-               </font>
-            </TextField>
-            <JFXComboBox fx:id="categoryCmb" layoutX="41.0" layoutY="160.0" prefHeight="25.0" prefWidth="144.0" promptText="Category" unFocusColor="#4239a8" />
-            <JFXComboBox fx:id="sizeCmb" layoutX="41.0" layoutY="198.0" prefHeight="25.0" prefWidth="144.0" promptText="Size" unFocusColor="#4239a8" />
+            </Label>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </AnchorPane>
+      </Pane>
+      <ImageView fx:id="backBtn" fitHeight="42.0" fitWidth="35.0" layoutX="20.0" layoutY="14.0" onMouseClicked="#backBtnOnAction" preserveRatio="true">
+         <image>
+            <Image url="@../images/left-arrow.png" />
+         </image>
+      </ImageView>
+      <Pane layoutY="366.0" prefHeight="42.0" prefWidth="706.0" style="-fx-background-color: #514CDF;" />
+      <TextField fx:id="desTxt" alignment="CENTER" layoutX="38.0" layoutY="123.0" promptText="Description" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="productIdTxt" alignment="CENTER" layoutX="38.0" layoutY="85.0" promptText="Product ID" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="qtyTxt" alignment="CENTER" layoutX="38.0" layoutY="237.0" promptText="Qty in Stock" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="232.0" layoutY="309.0" onAction="#addBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #503e9e; -fx-background-radius: 15;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="603.0" layoutY="309.0" onAction="#deleteBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #3BADCD; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="searchBtn" buttonType="RAISED" layoutX="482.0" layoutY="309.0" onAction="#searchBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #6293DB; -fx-background-radius: 15;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="updateBtn" buttonType="RAISED" layoutX="353.0" layoutY="309.0" onAction="#updateBtnOnAction" prefHeight="30.0" prefWidth="72.0" style="-fx-background-color: #7E66E3; -fx-background-radius: 15;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="productTbl" layoutX="216.0" layoutY="85.0" prefHeight="200.0" prefWidth="459.0">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="75.0" text="Product ID" />
+            <TableColumn fx:id="descCol" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="categoryCol" prefWidth="75.0" text="Category" />
+            <TableColumn fx:id="sizeCol" prefWidth="75.0" text="Size" />
+            <TableColumn fx:id="qtyCol" prefWidth="79.0" text="Qty in Stock" />
+            <TableColumn fx:id="priceCol" prefWidth="79.0" text="Price" />
+         </columns>
+         <effect>
+            <Glow />
+         </effect>
+      </TableView>
+      <TextField fx:id="priceTxt" alignment="CENTER" layoutX="38.0" layoutY="273.0" promptText="Price" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Arial Black" size="11.0" />
+         </font>
+      </TextField>
+      <JFXComboBox fx:id="categoryCmb" layoutX="41.0" layoutY="160.0" prefHeight="25.0" prefWidth="144.0" promptText="Category" unFocusColor="#4239a8" />
+      <JFXComboBox fx:id="sizeCmb" layoutX="41.0" layoutY="198.0" prefHeight="25.0" prefWidth="144.0" promptText="Size" unFocusColor="#4239a8" />
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

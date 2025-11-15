@@ -114,7 +114,7 @@ public class ProductManagementFormController implements Initializable {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
+        URL resource = this.getClass().getResource("/view/employeeDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadProductManagement.getChildren().clear();

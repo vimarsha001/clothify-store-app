@@ -51,7 +51,7 @@ public class AdminLoginFormController implements Initializable {
 
     @FXML
     void loginBtnOnAction(ActionEvent event) throws IOException {
-        if(usernameTxt.getText().equals("admin@1234") || pwTxt.getText().equals("pw1234")){
+        if(usernameTxt.getText().equals("admin@1234") | pwTxt.getText().equals("pw1234")){
             errorLbl.setText("");
             URL resource = this.getClass().getResource("/view/adminDashboardForm.fxml");
             Parent load = FXMLLoader.load(resource);

@@ -118,7 +118,7 @@ public class EmployeeManagementFormController implements Initializable {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/employeeManagementForm.fxml");
+        URL resource = this.getClass().getResource("/view/adminDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadStaffManagement.getChildren().clear();

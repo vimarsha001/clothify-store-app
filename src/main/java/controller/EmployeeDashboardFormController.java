@@ -38,7 +38,7 @@ public class EmployeeDashboardFormController implements Initializable {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/EmployeeLoginForm.fxml");
+        URL resource = this.getClass().getResource("/view/employeeLoginForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadStaffDash.getChildren().clear();

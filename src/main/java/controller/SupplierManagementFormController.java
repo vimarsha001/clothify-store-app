@@ -17,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import model.dto.Employee;
 import model.dto.Product;
 import model.dto.Supplier;
 import service.ProductService;
@@ -110,7 +109,7 @@ public class SupplierManagementFormController implements Initializable {
 
     @FXML
     void backBtnOnAction(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/view/EmployeeDashboardForm.fxml");
+        URL resource = this.getClass().getResource("/view/employeeDashboardForm.fxml");
         Parent load = FXMLLoader.load(resource);
 
         this.loadStaffManagement.getChildren().clear();

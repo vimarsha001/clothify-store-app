@@ -15,9 +15,9 @@
             <Image url="@../images/left-arrow.png" />
          </image>
       </ImageView>
-      <Label fx:id="dateLbl" layoutX="535.0" layoutY="29.0" text="Label" />
+      <Label fx:id="dateLbl" layoutX="514.0" layoutY="29.0" text="Label" />
       <Pane layoutY="362.0" prefHeight="42.0" prefWidth="602.0" style="-fx-background-color: #514CDF;" />
-      <JFXButton fx:id="staffManBtn" buttonType="RAISED" layoutX="218.0" layoutY="121.0" onAction="#staffManBtnOnAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" text="Staff Management" textFill="#503e9e">
+      <JFXButton fx:id="staffManBtn" buttonType="RAISED" layoutX="218.0" layoutY="121.0" onAction="#staffManBtnOnAction" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" text="Employee Management" textFill="#503e9e">
          <font>
             <Font name="Arial Black" size="11.0" />
          </font>
