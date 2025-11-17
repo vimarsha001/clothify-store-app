@@ -78,6 +78,7 @@ public class CartServiceImpl implements CartService {
         try {
             while (resultSet.next()){
                 custIds.add(resultSet.getString(1));
+                System.out.println(resultSet.getString(2));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

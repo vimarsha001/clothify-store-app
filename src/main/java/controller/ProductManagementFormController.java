@@ -18,17 +18,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.dto.Product;
+import service.OrderDetailsService;
 import service.ProductService;
+import service.impl.OrderDetailsServiceImpl;
 import service.impl.ProductServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ProductManagementFormController implements Initializable {
 
     ProductService productService = new ProductServiceImpl();
+    OrderDetailsService orderDetailsService = new OrderDetailsServiceImpl();
+
+    @FXML
+    private Label  restockLbl;
 
     @FXML
     private JFXButton addBtn;
@@ -183,6 +190,10 @@ public class ProductManagementFormController implements Initializable {
         sizeCmb.setValue(newValue.getSize());
         qtyTxt.setText(String.valueOf(newValue.getQtyInStock()));
         priceTxt.setText(String.valueOf(newValue.getPrice()));
+
+        if(Integer.parseInt(qtyTxt.getText())<10){
+            restockLbl.setText("Restock Required!");
+        }
     }
 
     public void loadTable(){

@@ -39,7 +39,6 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
         }
     }
 
-
     @Override
     public void delete(String id) {
         String SQL = "DELETE FROM order_details WHERE id = ?";
@@ -52,4 +51,5 @@ public class OrderDetailsRepositoryImpl implements OrderDetailsRepository {
             throw new RuntimeException(e);
         }
     }
+
 }
