@@ -193,6 +193,8 @@ public class ProductManagementFormController implements Initializable {
 
         if(Integer.parseInt(qtyTxt.getText())<10){
             restockLbl.setText("Restock Required!");
+        }else{
+            restockLbl.setText("");
         }
     }
 
